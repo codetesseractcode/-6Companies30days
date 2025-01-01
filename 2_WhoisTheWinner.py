@@ -1,9 +1,6 @@
 class Solution:
-    def checkOverlap(self, radius: int, xCenter: int, yCenter: int, x1: int, y1: int, x2: int, y2: int) -> bool:
-        nearest_x = max(x1, min(x2, xCenter))
-        nearest_y = max(y1, min(y2, yCenter))
-
-        dist_x = nearest_x - xCenter
-        dist_y = nearest_y - yCenter
-        
-        return pow(dist_x, 2) + pow(dist_y, 2) <= pow(radius, 2)
+    def findTheWinner(self, n: int, k: int) -> int:
+        res = 0
+        for people in range(1, n + 1):
+            res = (res + k) % people
+        return res + 1
